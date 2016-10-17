@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_food"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="au.com.rodofile.personalcaloriecounter.FoodActivity">
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/Food_name"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/kilojoules"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/Food_kilojoules"
+        android:inputType="text"
+        android:layout_below="@+id/calories"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="119dp" />
+
+    <EditText
+        android:id="@+id/amount"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/Food_amount"
+        android:inputType="text"
+        android:layout_below="@+id/calories"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="23dp" />
+
+    <EditText
+        android:id="@+id/calories"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/Food_calories"
+        android:inputType="text"
+        android:layout_below="@+id/name"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="124dp" />
+
+</RelativeLayout>
