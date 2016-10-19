@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Personal Calorie Counter</string>
     <string name="Food_name">Name</string>
-    <string name="Food_kilojoules">Name</string>
-    <string name="Food_calories">Name</string>
-    <string name="Food_amount">Name</string>
-
+    <string name="Food_kilojoules">Kilojoules</string>
+    <string name="Food_calories">Calories</string>
+    <string name="Food_amount">Amount</string>
+    <string name="Food_measurement">Measurement</string>
 </resources>
