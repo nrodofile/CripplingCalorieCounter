@@ -22,4 +22,52 @@ public class Food {
         this.amount = amount;
         this.mesurment = mesurment;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getKilojoules() {
+        return kilojoules;
+    }
+
+    public void setKilojoules(int kilojoules) {
+        this.kilojoules = kilojoules;
+    }
+
+    public int getCalories() {
+        return calories;
+    }
+
+    public void setCalories(int calories) {
+        this.calories = calories;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public String getMesurment() {
+        return mesurment;
+    }
+
+    public void setMesurment(String mesurment) {
+        this.mesurment = mesurment;
+    }
 }
