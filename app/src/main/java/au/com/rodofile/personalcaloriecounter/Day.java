@@ -11,12 +11,12 @@ public class Day {
     private int id;
     private Date date;
     private Intake[] intake;
-    private int total_calories;
-    private int total_kilojoules;
+    private double total_calories;
+    private double total_kilojoules;
 
     public Day(){}
 
-    public Day(int id, Date date, Intake[] intake, int total_calories, int total_kilojoules) {
+    public Day(int id, Date date, Intake[] intake, double total_calories, double total_kilojoules) {
         this.id = id;
         this.date = date;
         this.intake = intake;

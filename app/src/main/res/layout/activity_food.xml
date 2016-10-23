@@ -9,7 +9,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="au.com.rodofile.personalcaloriecounter.FoodActivity">
+    tools:context="au.com.rodofile.personalcaloriecounter.FoodActivity"
+    android:weightSum="1">
 
     <EditText
         android:id="@+id/EditTextName"
@@ -19,25 +20,41 @@
         android:inputType="text"
         tools:hint="Name" />
 
-    <EditText
-        android:id="@+id/EditTextKilojoules"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/Food_kilojoules"
-        android:inputType="number"
-        tools:hint="Kilojoules" />
-
-    <EditText
-    android:id="@+id/EditTextCalories"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:hint="@string/Food_calories"
-        tools:hint="Calories"
-        android:inputType="number" />
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <Spinner
+            android:layout_width="154dp"
+            android:layout_height="44dp"
+            android:id="@+id/spinnerMeasurement"
+            tools:prompt="@string/Food_measurement"
+            android:spinnerMode="dialog"
+            android:layout_alignBottom="@+id/EditTextAmount"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/EditTextAmount" />
+
+        <EditText
+        android:id="@+id/EditTextCalories"
+            android:layout_width="161dp"
+            android:layout_height="wrap_content"
+        android:hint="@string/Food_calories"
+            tools:hint="Calories"
+            android:inputType="number"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignEnd="@+id/EditTextKilojoules" />
+
+        <EditText
+            android:id="@+id/EditTextKilojoules"
+            android:layout_width="163dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/Food_kilojoules"
+            android:inputType="number"
+            tools:hint="Kilojoules"
+            android:layout_below="@+id/EditTextCalories"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/spinnerMeasurement" />
 
         <EditText
         android:id="@+id/EditTextAmount"
@@ -46,18 +63,28 @@
         android:hint="@string/Food_amount"
             tools:hint="Amount"
             android:inputType="number"
-            android:layout_alignParentTop="true"
+            android:layout_below="@+id/EditTextKilojoules"
             android:layout_alignParentStart="true"
             android:layout_toStartOf="@+id/spinnerMeasurement" />
 
-        <Spinner
-            android:layout_width="154dp"
-            android:layout_height="44dp"
-            android:id="@+id/spinnerMeasurement"
-            tools:prompt="@string/Food_measurement"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:spinnerMode="dialog" />
+        <TextView
+            android:text="@string/textViewKilojoules"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewKilojoules"
+            android:layout_alignBaseline="@+id/EditTextKilojoules"
+            android:layout_alignBottom="@+id/EditTextKilojoules"
+            android:layout_toEndOf="@+id/EditTextKilojoules" />
+
+        <TextView
+            android:text="@string/textViewCalories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewCalories"
+            android:layout_alignBaseline="@+id/EditTextCalories"
+            android:layout_alignBottom="@+id/EditTextCalories"
+            android:layout_toEndOf="@+id/EditTextCalories" />
+
     </RelativeLayout>
 
     <Button
@@ -69,6 +96,8 @@
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="263dp"
+        android:layout_weight="1.20"
+        android:id="@+id/ListViewFood" />
 
 </LinearLayout>

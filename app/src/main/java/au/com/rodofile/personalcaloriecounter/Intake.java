@@ -9,13 +9,13 @@ public class Intake {
     private int id;
     private Food food;
     private int consumed;
-    private int calories;
-    private int kilojoules;
+    private double calories;
+    private double kilojoules;
     private Date date;
 
     public Intake(){}
 
-    public Intake(int id, Food food, int consumed, int calories, int kilojoules, Date date) {
+    public Intake(int id, Food food, int consumed, double calories, double kilojoules, Date date) {
         this.id = id;
         this.food = food;
         this.consumed = consumed;

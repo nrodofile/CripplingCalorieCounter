@@ -7,14 +7,14 @@ package au.com.rodofile.personalcaloriecounter;
 public class Food {
     private int id;
     private String name;
-    private int kilojoules;
-    private int calories;
+    private double kilojoules;
+    private double calories;
     private int amount;
     private String mesurment;
 
     public Food(){}
 
-    public Food(int id, String name, int kilojoules, int calories, int amount, String mesurment) {
+    public Food(int id, String name, double kilojoules, double calories, int amount, String mesurment) {
         this.id = id;
         this.name = name;
         this.kilojoules = kilojoules;
@@ -39,19 +39,19 @@ public class Food {
         this.name = name;
     }
 
-    public int getKilojoules() {
+    public double getKilojoules() {
         return kilojoules;
     }
 
-    public void setKilojoules(int kilojoules) {
+    public void setKilojoules(double kilojoules) {
         this.kilojoules = kilojoules;
     }
 
-    public int getCalories() {
+    public double getCalories() {
         return calories;
     }
 
-    public void setCalories(int calories) {
+    public void setCalories(double calories) {
         this.calories = calories;
     }
 

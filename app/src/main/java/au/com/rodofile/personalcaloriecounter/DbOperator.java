@@ -21,26 +21,27 @@ public class DbOperator extends SQLiteOpenHelper {
             "CREATE TABLE IF NOT EXISTS Food (" +
                     "id_Food integer PRIMARY KEY AUTOINCREMENT," +
                     "name varchar," +
-                    "kilojoules integer," +
-                    "calories integer," +
+                    "kilojoules double," +
+                    "calories double," +
                     "amount integer," +
-                    "mesurment varchar" +
+                    "measurement varchar," +
+                    "UNIQUE(name) ON CONFLICT REPLACE" +
                     ");";
     public static final String CREATE_TABLE_INTAKE =
             "CREATE TABLE IF NOT EXISTS Intake (" +
                     "id_Intake integer PRIMARY KEY AUTOINCREMENT," +
                     "id_Food integer," +
                     "consumed integer," +
-                    "calories integer," +
-                    "kilojoules integer," +
+                    "calories double," +
+                    "kilojoules double," +
                     "date_Intake datetime" +
                     ");";
     public static final String CREATE_TABLE_DAY =
             "CREATE TABLE IF NOT EXISTS Day (" +
                     "id_day integer PRIMARY KEY AUTOINCREMENT," +
                     "date_day datetime," +
-                    "total_calories integer," +
-                    "total_kilojoules integer" +
+                    "total_calories double," +
+                    "total_kilojoules double" +
                     ");";
     public static final String CREATE_TABLE_DAY_INTAKE =
             "CREATE TABLE IF NOT EXISTS Day_Intake (" +

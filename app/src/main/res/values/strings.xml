@@ -5,4 +5,6 @@
     <string name="Food_calories">Calories</string>
     <string name="Food_amount">Amount</string>
     <string name="Food_measurement">Measurement</string>
+    <string name="textViewCalories">cal</string>
+    <string name="textViewKilojoules">kj</string>
 </resources>
