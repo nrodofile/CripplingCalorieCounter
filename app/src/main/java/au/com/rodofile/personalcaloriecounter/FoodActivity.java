@@ -20,8 +20,8 @@ import java.util.List;
 
 public class FoodActivity extends AppCompatActivity {
     FoodController food_controller = new FoodController(this);
-    ArrayList<String> foodArrayList = new ArrayList<String>();
-    ArrayAdapter<String> adapter_food;
+    ArrayList<Food> foodArrayList = new ArrayList<Food>();
+    FoodAdapter adapter_food;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,15 +35,15 @@ public class FoodActivity extends AppCompatActivity {
                 android.R.layout.simple_spinner_item, measurementSpinner);
         s.setAdapter(adapter);
         Button buttonCreateFood = (Button) findViewById(R.id.buttonSaveFood);
+        Button buttonClear = (Button) findViewById(R.id.buttonClear);
         buttonCreateFood.setOnClickListener(CreateFood);
+        buttonClear.setOnClickListener(ClearForm);
         EditText editTextCalories = (EditText) findViewById(R.id.EditTextCalories);
         EditText editTextKilojoules = (EditText) findViewById(R.id.EditTextKilojoules);
         editTextCalories.setOnFocusChangeListener(cal_to_kj);
         editTextKilojoules.setOnFocusChangeListener(kj_to_cal);
-
+        adapter_food = new FoodAdapter(this, foodArrayList);
         ListView ListViewFood = (ListView) findViewById(R.id.ListViewFood);
-        this.adapter_food = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, foodArrayList);
         ListViewFood.setAdapter(adapter_food);
         appendFoods();
     }
@@ -52,7 +52,7 @@ public class FoodActivity extends AppCompatActivity {
         foodArrayList.clear();
         List<Food> foods = this.food_controller.read();
         for (Food food: foods) {
-            foodArrayList.add(food.getName());
+            foodArrayList.add(food);
         }
         this.adapter_food.notifyDataSetChanged();
     }
@@ -63,6 +63,20 @@ public class FoodActivity extends AppCompatActivity {
         toast.show();
     }
 
+    private void ClearInput(){
+        final EditText editTextName = (EditText) findViewById(R.id.EditTextName);
+        final EditText editTextKilojoules = (EditText) findViewById(R.id.EditTextKilojoules);
+        final EditText editTextCalories = (EditText) findViewById(R.id.EditTextCalories);
+        final EditText editTextAmount = (EditText) findViewById(R.id.EditTextAmount);
+        final Spinner spinnerMeasurement = (Spinner) findViewById(R.id.spinnerMeasurement);
+
+        editTextName.setText("");
+        editTextKilojoules.setText("");
+        editTextCalories.setText("");
+        editTextAmount.setText("");
+    }
+
+
     View.OnFocusChangeListener cal_to_kj = new View.OnFocusChangeListener() {
         @Override
         public void onFocusChange(View v, boolean hasFocus) {
@@ -70,7 +84,7 @@ public class FoodActivity extends AppCompatActivity {
             EditText editTextCalories = (EditText) findViewById(R.id.EditTextCalories);
             EditText editTextKilojoules = (EditText) findViewById(R.id.EditTextKilojoules);
             String kilojoules_str = editTextKilojoules.getText().toString();
-            if(kilojoules_str.length() > 0) {
+            if((kilojoules_str.length() > 0) && (editTextCalories.getText().toString().length() == 0)) {
                 double kilojoules = Double.parseDouble(kilojoules_str);
                 double calories = (cal_in_kj * kilojoules);
                 String calories_string = Double.toString(calories);
@@ -86,7 +100,7 @@ public class FoodActivity extends AppCompatActivity {
             EditText editTextKilojoules = (EditText) findViewById(R.id.EditTextKilojoules);
             EditText editTextCalories = (EditText) findViewById(R.id.EditTextCalories);
             String calories_str = editTextCalories.getText().toString();
-            if(calories_str.length() > 0){
+            if((calories_str.length() > 0) && (editTextKilojoules.getText().toString().length() == 0)){
                 double calories = Double.parseDouble(calories_str);
                 Double kilojoules = kj_in_cal * calories;
                 String kilojoules_string = Double.toString(kilojoules);
@@ -95,6 +109,15 @@ public class FoodActivity extends AppCompatActivity {
 
         }
     };
+
+
+
+    View.OnClickListener ClearForm = new View.OnClickListener() {
+        public void onClick(View v) {
+            ClearInput();
+        }
+    };
+
 
     View.OnClickListener CreateFood = new View.OnClickListener() {
         public void onClick(View v) {
@@ -120,10 +143,7 @@ public class FoodActivity extends AppCompatActivity {
             CharSequence text = name + " Failed to add";
             if (results){
                 text = name + " Added";
-                editTextName.setText("");
-                editTextKilojoules.setText("");
-                editTextCalories.setText("");
-                editTextAmount.setText("");
+                ClearInput();
             }
             showToast(text);
             appendFoods();

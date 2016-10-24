@@ -52,7 +52,7 @@ public class FoodController extends DbOperator {
 
         List<Food> recordsList = new ArrayList<Food>();
 
-        String sql = "SELECT * FROM Food ORDER BY name DESC";
+        String sql = "SELECT * FROM Food ORDER BY name;";
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(sql, null);

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="Amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewAmount"
+            android:layout_below="@+id/textViewFoodName"
+            android:layout_alignStart="@+id/textViewFoodName" />
+
+        <TextView
+            android:text="Kilojoules"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewKilojoules"
+            android:layout_toStartOf="@+id/textViewCaloriesLabel"
+            android:layout_above="@+id/textViewCalories" />
+
+        <TextView
+            android:text="Calories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewCalories"
+            android:layout_alignBaseline="@+id/textViewMeasurement"
+            android:layout_alignBottom="@+id/textViewMeasurement"
+            android:layout_alignStart="@+id/textViewKilojoules" />
+
+        <TextView
+            android:text="Measurement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewMeasurement"
+            android:textSize="12sp"
+            android:layout_alignBaseline="@+id/textViewAmount"
+            android:layout_alignBottom="@+id/textViewAmount"
+            android:layout_toEndOf="@+id/textViewAmount" />
+
+        <TextView
+            android:text="Cal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewCaloriesLabel"
+            android:textSize="12sp"
+            android:layout_alignBaseline="@+id/textViewCalories"
+            android:layout_alignBottom="@+id/textViewCalories"
+            android:layout_alignEnd="@+id/textViewKilojoulesLabel" />
+
+        <TextView
+            android:text="kj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewKilojoulesLabel"
+            android:layout_marginEnd="11dp"
+            android:textSize="12sp"
+            android:layout_alignBaseline="@+id/textViewKilojoules"
+            android:layout_alignBottom="@+id/textViewKilojoules"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:text="Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:id="@+id/textViewFoodName"
+            android:textSize="18sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+</LinearLayout>
